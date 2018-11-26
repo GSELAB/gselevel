@@ -55,12 +55,12 @@ int main(int argc, char **argv)
     int default_version = 11;
 
     client::Client client(default_host, default_port, default_version);
-    client.login("63D065F2D813D790427C8583E384359828BFF6A9F7012F9D28C111D7F2A2EF88");
+    client.login("");
 
     uint64_t count = 0;
     for (count = 1; count > 0; count++) {
 
-        unsigned txSize = count % 5;
+        unsigned txSize = currentTimestamp() % 10;
         for (unsigned i = 0; i < txSize; i++) {
             uint64_t value = currentTimestamp() % 10000000;
             Address recipient = getRandomAddress();
